@@ -1,11 +1,14 @@
-"use client";
-
 import { useCallback } from "react";
-import { useStore, getBezierPath } from "reactflow";
-
+import { useStore, getSmoothStepPath, EdgeProps } from "reactflow";
 import { getEdgeParams } from "@/lib/utils";
 
-function SimpleFloatingEdge({ id, source, target, markerEnd, style }) {
+function SimpleFloatingEdge({
+  id,
+  source,
+  target,
+  markerEnd,
+  style,
+}: EdgeProps) {
   const sourceNode = useStore(
     useCallback((store) => store.nodeInternals.get(source), [source])
   );
@@ -22,7 +25,7 @@ function SimpleFloatingEdge({ id, source, target, markerEnd, style }) {
     targetNode
   );
 
-  const [edgePath] = getBezierPath({
+  const [edgePath] = getSmoothStepPath({
     sourceX: sx,
     sourceY: sy,
     sourcePosition: sourcePos,
@@ -36,7 +39,6 @@ function SimpleFloatingEdge({ id, source, target, markerEnd, style }) {
       id={id}
       className="react-flow__edge-path"
       d={edgePath}
-      strokeWidth={5}
       markerEnd={markerEnd}
       style={style}
     />
