@@ -6,17 +6,18 @@ import ReactFlow, {
   useEdgesState,
   Controls,
   Background,
+  useReactFlow,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import { generateUUID } from "@/lib/utils";
 import VariableNode from "@/components/flow/nodes/variable";
+import FunctionNode from "@/components/flow/nodes/function";
 import SimpleFloatingEdge from "./edge/floating-edge";
 import FlowWrapper from "./components/flow-wrapper";
-import SampleNode from "./nodes/sample_node";
 
 const nodeTypes = {
   variable_node: VariableNode,
-  sample_node: SampleNode,
+  function_node: FunctionNode,
 };
 const edgeTypes = {
   floating: SimpleFloatingEdge,
@@ -26,6 +27,7 @@ const Flow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState<any>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<any>([]);
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
+  const { getIntersectingNodes } = useReactFlow();
 
   const onConnect = useCallback(
     (params: any) => {
@@ -35,6 +37,8 @@ const Flow = () => {
         type: "floating",
         animated: true,
       };
+
+      console.log("params", params);
 
       setEdges((eds) => addEdge(updatedParams, eds));
     },
@@ -77,31 +81,46 @@ const Flow = () => {
     [reactFlowInstance]
   );
 
+  const onNodeDrag = useCallback((_: MouseEvent, node: Node) => {
+    const intersections = getIntersectingNodes(node).map((n) => n.id);
+
+    setNodes((ns) =>
+      ns.map((n) => {
+        if (n.type != "function_node" && n.extent != "parent") {
+          return {
+            ...n,
+            data: { ...n.data, intersections: intersections },
+          };
+        }
+        return n;
+      })
+    );
+  }, []);
+
   return (
-    <FlowWrapper>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={(params) => {
-          console.log(params);
-          onEdgesChange(params);
-        }}
-        onConnect={(params) => {
-          onConnect(params);
-        }}
-        onInit={setReactFlowInstance}
-        onDrop={onDrop}
-        onDragOver={onDragOver}
-        fitView
-        snapGrid={[30, 30]}
-        nodeTypes={nodeTypes}
-        edgeTypes={edgeTypes}
-      >
-        <Background />
-        <Controls />
-      </ReactFlow>
-    </FlowWrapper>
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={(params) => {
+        console.log(params);
+        onEdgesChange(params);
+      }}
+      onConnect={(params) => {
+        onConnect(params);
+      }}
+      onInit={setReactFlowInstance}
+      onDrop={onDrop}
+      onDragOver={onDragOver}
+      fitView
+      snapGrid={[30, 30]}
+      nodeTypes={nodeTypes}
+      edgeTypes={edgeTypes}
+      onNodeDrag={onNodeDrag}
+    >
+      <Background />
+      <Controls />
+    </ReactFlow>
   );
 };
 

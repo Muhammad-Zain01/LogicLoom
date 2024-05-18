@@ -1,16 +1,13 @@
 "use client";
 import { useRef } from "react";
 import { ReactFlowProvider } from "reactflow";
+import Flow from "../flow";
 
-type ComponentProps = {
-  children: React.ReactNode;
-};
-
-const FlowWrapper: React.FC<ComponentProps> = ({ children }) => {
+const FlowWrapper: React.FC = () => {
   const reactFlowWrapper = useRef(null);
 
   return (
-    <div className="h-full">
+    <div className="flex h-full flex-col">
       <ReactFlowProvider>
         <div className=" h-full">
           <div className="flex flex-row h-full flex-1">
@@ -19,7 +16,7 @@ const FlowWrapper: React.FC<ComponentProps> = ({ children }) => {
               ref={reactFlowWrapper}
               style={{ height: "100%" }}
             >
-              {children}
+              <Flow />
             </div>
           </div>
         </div>

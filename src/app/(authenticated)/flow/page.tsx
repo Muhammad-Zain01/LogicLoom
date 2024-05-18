@@ -1,5 +1,5 @@
-import Flow from "@/components/flow/flow";
+import FlowWrapper from "@/components/flow/components/flow-wrapper";
 
 export default function FlowPage() {
-  return <Flow />;
+  return <FlowWrapper />;
 }

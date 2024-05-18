@@ -10,9 +10,9 @@ const DashboardLayout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
   return (
     <div className="flex h-screen">
       <Sidebar />
-      <div className="flex-1 ">
+      <div className="flex flex-col w-full ">
         <Header />
-        <div className="p-6 h-full">{children}</div>
+        <div className="p-6 h-full ">{children}</div>
       </div>
     </div>
   );
