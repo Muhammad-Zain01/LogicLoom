@@ -1,7 +1,7 @@
 import { CardContent, Card } from "@/components/ui/card";
 import { FormFields } from "@/constants/form-fields";
-import { Widgets } from "@/constants/widgets";
-import { TrashIcon } from "@radix-ui/react-icons";
+import { useDraggable } from "@dnd-kit/core";
+import { CSS } from "@dnd-kit/utilities";
 
 type ItemWrapperProps = {
   label: string;
@@ -14,8 +14,23 @@ const ItemWrapper: React.FC<ItemWrapperProps> = ({
   icon,
   onDragStart,
 }) => {
+  const { attributes, listeners, setNodeRef, transform, isDragging } =
+    useDraggable({
+      id: label,
+    });
+
+  const style = {
+    transform: CSS.Transform.toString({
+      x: transform?.x || 0,
+      y: transform?.y || 0,
+    }),
+    opacity: isDragging ? 0.5 : 1,
+    marginBottom: "4px",
+    cursor: "grab",
+  };
+
   return (
-    <div onDragStart={onDragStart} draggable>
+    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
       <Card className="bg-white rounded-sm dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow cursor-grab">
         <CardContent className="flex items-center justify-center p-2">
           {icon}

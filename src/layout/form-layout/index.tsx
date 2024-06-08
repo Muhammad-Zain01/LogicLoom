@@ -12,7 +12,7 @@ const FormLayout: React.FC<LayoutProps> = ({ children }): JSX.Element => {
       <Header />
       <div className="flex w-full h-full ">
         <Sidebar />
-        <div className="p-6 h-full w-full">{children}</div>
+        <div className="h-full w-full">{children}</div>
       </div>
     </div>
   );
