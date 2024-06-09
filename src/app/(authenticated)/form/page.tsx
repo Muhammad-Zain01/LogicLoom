@@ -2,7 +2,7 @@ import FormBuilder from "@/components/form-builder/form-builder";
 
 const FormPage = () => {
   return (
-    <div className="flex justify-center h-full p-4">
+    <div className="flex justify-center bg-gray-200 h-full overflow-scroll">
       <FormBuilder />
     </div>
   );

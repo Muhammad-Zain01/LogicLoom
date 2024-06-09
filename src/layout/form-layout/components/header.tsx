@@ -11,7 +11,7 @@ import {
 import { TrashIcon } from "@radix-ui/react-icons";
 const Header = () => {
   return (
-    <header className="flex h-16 items-center border-b bg-gray-100 px-6 dark:border-gray-800 dark:bg-gray-950">
+    <header className="flex h-full items-center border-b bg-gray-100 px-6 dark:border-gray-800 dark:bg-gray-950">
       <div className="flex-1">
         <form>
           <div className="relative">
