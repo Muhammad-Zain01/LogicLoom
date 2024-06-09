@@ -6,7 +6,8 @@ import {
 import { Fragment } from "react";
 import { Button } from "react-day-picker";
 import { UseFormReturn } from "react-hook-form";
-import QuestionItem, { PlaceHolder } from "./question-item";
+import QuestionItem from "./question-item";
+import { PlaceHolder } from "./placeholder";
 import FieldMap from "./field-map";
 
 type ComponentProps = {
@@ -15,6 +16,7 @@ type ComponentProps = {
 
 const FormQuestions: React.FC<ComponentProps> = ({ form }: any) => {
   const formData = useFormStore((state) => state.form);
+
   const renderField = (item: any, field: any) => {
     // @ts-ignore
     const Field = FieldMap[item.type];

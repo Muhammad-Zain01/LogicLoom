@@ -1,20 +1,29 @@
 import { create } from "zustand";
 
-type FormItem = any;
+export type FieldType = string;
+
+export type FormItem = {
+  id: string;
+  type: FieldType;
+  label: string;
+  placeholder: string;
+  description: string;
+  is_required: boolean;
+  is_readonly: boolean;
+  settings: any;
+};
 
 type FormStoreState = {
-  form: FormItem[];
-  setForm: (items: FormItem) => void;
+  form: any;
+  setForm: (items: any) => void;
   addForm: (item: FormItem) => void;
 };
 
 type FormDraggingState = {
   overId: any;
   activeId: any;
-  draggingItem: any;
   setOverId: (id: any) => void;
   setActiveId: (id: any) => void;
-  setDraggingItem: (id: any) => void;
 };
 
 const currentDefault = [
@@ -22,7 +31,6 @@ const currentDefault = [
     id: "1235kcja;dsf",
     type: "single-line",
     label: "First Name",
-    reference: "first_name_123",
     placeholder: "Enter your first name",
     description: "Enter your first name",
     is_required: true,
@@ -33,23 +41,12 @@ const currentDefault = [
     id: "1235",
     type: "single-line",
     label: "Last Name",
-    reference: "first_name_123",
     placeholder: "Enter your first name",
     description: "Enter your first name",
     is_required: true,
     is_readonly: false,
     settings: {},
   },
-  // {
-  //   id: "1235kcja;dsf22",
-  //   type: "button",
-  //   label: "Submit",
-  //   reference: "btn_123",
-  //   placeholder: "",
-  //   description: "",
-  //   is_required: true,
-  //   is_readonly: false,
-  // },
 ];
 
 export const useFormStore = create<FormStoreState>((set) => ({
@@ -61,8 +58,6 @@ export const useFormStore = create<FormStoreState>((set) => ({
 export const useFormDraggingStore = create<FormDraggingState>((set) => ({
   overId: {},
   activeId: {},
-  draggingItem: {},
   setOverId: (data: any) => set({ overId: data }),
   setActiveId: (data: any) => set({ activeId: data }),
-  setDraggingItem: (data: any) => set({ draggingItem: data }),
 }));
