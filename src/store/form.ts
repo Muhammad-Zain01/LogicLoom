@@ -14,50 +14,25 @@ export type FormItem = {
 };
 
 type FormStoreState = {
-  form: any;
-  setForm: (items: any) => void;
+  form: FormItem[];
+  questionSelectedId: string | null;
+  setForm: (items: FormItem[]) => void;
   addForm: (item: FormItem) => void;
+  selectQuestion: (id: string) => void;
+  unSelectedQuestion: () => void;
+  removeFormQuestion: (id: string) => void;
 };
-
-type FormDraggingState = {
-  overId: any;
-  activeId: any;
-  setOverId: (id: any) => void;
-  setActiveId: (id: any) => void;
-};
-
-const currentDefault = [
-  {
-    id: "1235kcja;dsf",
-    type: "single-line",
-    label: "First Name",
-    placeholder: "Enter your first name",
-    description: "Enter your first name",
-    is_required: true,
-    is_readonly: false,
-    settings: {},
-  },
-  {
-    id: "1235",
-    type: "single-line",
-    label: "Last Name",
-    placeholder: "Enter your first name",
-    description: "Enter your first name",
-    is_required: true,
-    is_readonly: false,
-    settings: {},
-  },
-];
 
 export const useFormStore = create<FormStoreState>((set) => ({
-  form: currentDefault,
-  setForm: (items: any) => set({ form: items }),
-  addForm: (item: any) => set((state) => ({ form: [...state.form, item] })),
-}));
-
-export const useFormDraggingStore = create<FormDraggingState>((set) => ({
-  overId: {},
-  activeId: {},
-  setOverId: (data: any) => set({ overId: data }),
-  setActiveId: (data: any) => set({ activeId: data }),
+  form: [] as FormItem[],
+  questionSelectedId: null,
+  setForm: (items: FormItem[]) => set({ form: items }),
+  addForm: (item: FormItem) =>
+    set((state) => ({ form: [...state.form, item] })),
+  removeFormQuestion: (id: string) =>
+    set((state) => ({
+      form: state.form.filter((question) => question.id !== id),
+    })),
+  selectQuestion: (id: string) => set({ questionSelectedId: id }),
+  unSelectedQuestion: () => set({ questionSelectedId: null }),
 }));

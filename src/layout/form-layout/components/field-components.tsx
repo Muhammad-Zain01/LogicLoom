@@ -1,18 +1,18 @@
-import { FormFields } from "@/constants/form-fields";
+import { FieldItem, FormFields } from "@/constants/form-fields";
 import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 
 type ItemWrapperProps = {
-  label: string;
-  icon: React.ReactNode;
+  item: { label: string; type: string; icon: React.ReactNode };
 };
 
-const ItemWrapper: React.FC<ItemWrapperProps> = ({ label, icon }) => {
+const ItemWrapper: React.FC<ItemWrapperProps> = ({ item }) => {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useDraggable({
-      id: label,
+      id: item.label,
       data: {
         isSidebarItem: true,
+        type: item.type,
       },
     });
 
@@ -36,16 +36,16 @@ const ItemWrapper: React.FC<ItemWrapperProps> = ({ label, icon }) => {
       {isDragging && (
         <div
           style={dummyStyle}
-          className="opacity-100 absolute w-[150px] flex items-center justify-center rounded p-4 bg-white border-2 border-dashe text-blue-300 border-blue-300"
+          className="opacity-100 absolute w-[150px] flex items-center justify-center rounded p-4 bg-white border-2 border-dashed text-blue-300 border-blue-300"
         >
-          {label}
+          {item.label}
         </div>
       )}
-      <div className="flex border  bg-[#f8f8f8] border-[#e3e3e3] rounded justify-center items-center dark:bg-gray-900 cursor-grab">
-        <div className="flex flex-col items-center justify-center p-1 py-5 h-full w-full ">
-          {icon}
-          <span className="text-[12px] text-center font-medium text-gray-500 dark:text-gray-50 mx-2">
-            {label}
+      <div className="flex h-[80px] border bg-[#f8f8f8] border-[#e3e3e3] rounded justify-center items-center dark:bg-gray-900 cursor-grab">
+        <div className="flex flex-col items-center justify-center p-0 py-4 h-full w-full ">
+          {item.icon}
+          <span className="text-[11px] w-full text-center font-medium text-gray-500 dark:text-gray-50 mx-2">
+            {item.label}
           </span>
         </div>
       </div>
@@ -54,14 +54,24 @@ const ItemWrapper: React.FC<ItemWrapperProps> = ({ label, icon }) => {
 };
 
 const FieldComponents = () => {
+  const KEYS = Object.keys(FormFields);
   return (
     <div>
-      <div className="my-3 mt-6 text-gray-300">Components</div>
-      <div className="grid grid-cols-3 gap-2">
-        {FormFields.map((item, idx) => {
-          return <ItemWrapper key={idx} label={item.label} icon={item.icon} />;
-        })}
-      </div>
+      {KEYS.map((key: string, idx: number) => {
+        const FormItem = FormFields[key] as FieldItem[];
+        return (
+          <>
+            <div className="my-2 mt-4 text-gray-400 font-[400] text-[14px]">
+              {key}
+            </div>
+            <div className="grid grid-cols-4 gap-2">
+              {FormItem.map((item: FieldItem) => {
+                return <ItemWrapper key={idx} item={item} />;
+              })}
+            </div>
+          </>
+        );
+      })}
     </div>
   );
 };

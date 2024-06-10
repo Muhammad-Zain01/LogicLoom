@@ -26,6 +26,13 @@ const FormQuestions: React.FC<ComponentProps> = ({ form }: any) => {
     return <Field field={field} />;
   };
 
+  if (formData && !formData.length) {
+    return (
+      <div className="flex">
+        <PlaceHolder id="initial" isInitial />
+      </div>
+    );
+  }
   return (
     <SortableContext items={formData} strategy={verticalListSortingStrategy}>
       {formData.map((item: any, index: number) => {

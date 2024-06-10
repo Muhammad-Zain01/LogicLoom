@@ -2,7 +2,7 @@ import { Button } from "react-day-picker";
 import SingleLine from "./fields/single-line";
 
 const FieldMap = {
-  "single-line": SingleLine,
+  short_text: SingleLine,
   button: Button,
 };
 

@@ -3,10 +3,11 @@ import { useDroppable } from "@dnd-kit/core";
 import clsx from "clsx";
 import { useMemo } from "react";
 
-export const PlaceHolder: React.FC<{ id: string; isTop: boolean }> = ({
-  id,
-  isTop,
-}) => {
+export const PlaceHolder: React.FC<{
+  id?: string;
+  isTop?: boolean;
+  isInitial?: boolean;
+}> = ({ id, isTop, isInitial = false }) => {
   const form = useFormStore((state) => state.form);
   const formIds = useMemo(() => form.map((item) => item.id), [form]);
   const { setNodeRef, isOver, active } = useDroppable({
@@ -20,8 +21,9 @@ export const PlaceHolder: React.FC<{ id: string; isTop: boolean }> = ({
   return (
     <div
       className={clsx(
-        " flex items-center justify-center w-full transition-all",
-        isOver ? "h-[35px]" : "h-[15px]"
+        " flex  justify-center w-full transition-all",
+        isInitial ? "items-start" : "items-center",
+        !isInitial ? (isOver ? "h-[35px]" : "h-[18px]") : "h-[200px]"
       )}
     >
       {/* @ts-ignore */}

@@ -18,11 +18,7 @@ const QuestionItem = ({ form, question, renderField }: any) => {
         render={({ field }) => (
           <FormItem className="w-full">
             <FormLabel className="text-[14px]">{question.label}</FormLabel>
-            {question.description && (
-              <FormDescription>
-                <Input value={question.description} />
-              </FormDescription>
-            )}
+            
             <FormControl>{renderField(question, field)}</FormControl>
             <FormMessage />
           </FormItem>

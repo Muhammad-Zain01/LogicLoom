@@ -1,4 +1,6 @@
-import { useFormDraggingStore, useFormStore } from "@/store/form";
+import { generateFormField } from "@/lib/form-utils";
+import { useFormStore } from "@/store/form";
+import { useFormDraggingStore } from "@/store/form-drag";
 import {
   DndContext,
   MouseSensor,
@@ -13,13 +15,13 @@ type ComponentProps = {
 };
 
 const DndWrapper: React.FC<ComponentProps> = ({ children }) => {
-  const { form, setForm } = useFormStore((state) => state);
-  const { setActiveId, setOverId } = useFormDraggingStore((state) => state);
+  const { form, setForm, addForm } = useFormStore((state) => state);
+  const { setActive, setOver } = useFormDraggingStore((state) => state);
 
   const handleDragStart = (event: any) => {
     const { active, over } = event;
-    setActiveId(active);
-    setOverId(over);
+    setActive(active);
+    setOver(over);
   };
 
   const handleDragEnd = (event: any) => {
@@ -33,25 +35,24 @@ const DndWrapper: React.FC<ComponentProps> = ({ children }) => {
       const isTop = over?.data?.current?.isTop;
 
       if (overId) {
-        const newFormItem = {
-          id: `${Math.random() * 5222}-${active.id}`,
-          type: "single-line",
-          label: active.id,
-          placeholder: "Enter your first name",
-          description: "Enter your first name",
-          is_required: true,
-          is_readonly: false,
-          settings: {},
-        };
-        const index = form.findIndex((item: any) => item.id == overId);
-        if (index >= -1 && index < form.length) {
-          const formCopy = [...form];
-          console.log(formCopy, newFormItem);
-          setForm([
-            ...(!isTop ? formCopy.slice(0, index + 1) : [newFormItem]),
-            ...(isTop ? formCopy.slice(0, index + 1) : [newFormItem]),
-            ...formCopy.slice(index + 1),
-          ]);
+        if (overId == "initial") {
+          const newFormItem = generateFormField({
+            type: active?.data?.current?.type || "",
+          });
+          addForm(newFormItem);
+        } else {
+          const newFormItem = generateFormField({
+            type: active?.data?.current?.type || "",
+          });
+          const index = form.findIndex((item: any) => item.id == overId);
+          if (index >= -1 && index < form.length) {
+            const formCopy = [...form];
+            setForm([
+              ...(!isTop ? formCopy.slice(0, index + 1) : [newFormItem]),
+              ...(isTop ? formCopy.slice(0, index + 1) : [newFormItem]),
+              ...formCopy.slice(index + 1),
+            ]);
+          }
         }
       }
     } else {
@@ -59,8 +60,8 @@ const DndWrapper: React.FC<ComponentProps> = ({ children }) => {
       const newPos = form.findIndex((item: any) => item.id == over?.id);
       setForm(arrayMove(form, orgPos, newPos));
     }
-    setActiveId(null);
-    setOverId(null);
+    setActive(null);
+    setOver(null);
   };
 
   const mouseSensor = useSensor(MouseSensor, {

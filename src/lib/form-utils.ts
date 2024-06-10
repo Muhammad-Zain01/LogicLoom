@@ -1,4 +1,5 @@
 import { FormItem } from "@/store/form";
+import { generateUUID } from "./utils";
 
 export const DefaultFormField: FormItem = {
   id: "",
@@ -11,6 +12,6 @@ export const DefaultFormField: FormItem = {
   settings: {},
 };
 
-const generateFormField = (data: any) => {
-  return { ...DefaultFormField };
+export const generateFormField = (data: any) => {
+  return { ...DefaultFormField, ...data, id: generateUUID() };
 };
