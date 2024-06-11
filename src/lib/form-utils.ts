@@ -9,6 +9,8 @@ export const DefaultFormField: FormItem = {
   description: "",
   is_required: true,
   is_readonly: false,
+  is_form_item: true,
+  is_widget: false,
   settings: {},
 };
 

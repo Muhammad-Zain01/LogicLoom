@@ -3,7 +3,7 @@ import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 
 type ItemWrapperProps = {
-  item: { label: string; type: string; icon: React.ReactNode };
+  item: FieldItem;
 };
 
 const ItemWrapper: React.FC<ItemWrapperProps> = ({ item }) => {
@@ -13,6 +13,8 @@ const ItemWrapper: React.FC<ItemWrapperProps> = ({ item }) => {
       data: {
         isSidebarItem: true,
         type: item.type,
+        isFormItem: item?.isFormItem ? true : false,
+        isWidget: item?.isWidget ? true : false,
       },
     });
 

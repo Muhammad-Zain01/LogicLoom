@@ -5,7 +5,7 @@ import { HiOutlineSelector } from "react-icons/hi";
 import { AiOutlineNumber } from "react-icons/ai";
 import { IoText } from "react-icons/io5";
 import { MdOutlineShortText } from "react-icons/md";
-import { LuText } from "react-icons/lu";
+import { LuFormInput, LuText } from "react-icons/lu";
 import { BsCalendar2Date } from "react-icons/bs";
 import { IoTimeOutline } from "react-icons/io5";
 import { BsCurrencyDollar } from "react-icons/bs";
@@ -42,19 +42,19 @@ export const FormFields: FormFieldType = {
       label: "Heading",
       type: "heading",
       icon: <FaHeading className={CLASSES} />,
-      isFormItem: true,
+      isFormItem: false,
     },
     {
       label: "Caption",
       type: "caption",
       icon: <PiClosedCaptioningLight className={CLASSES} />,
-      isFormItem: true,
+      isFormItem: false,
     },
     {
       label: "Description",
       type: "description",
       icon: <CiTextAlignJustify className={CLASSES} />,
-      isFormItem: true,
+      isFormItem: false,
     },
     {
       label: "Divider",
@@ -141,6 +141,12 @@ export const FormFields: FormFieldType = {
       type: "phone",
       icon: <FiPhone className={CLASSES} />,
       isFormItem: true,
+    },
+    {
+      label: "Button",
+      type: "button",
+      icon: <LuFormInput className={CLASSES} />,
+      isFormItem: false,
     },
   ],
   Widgets: [

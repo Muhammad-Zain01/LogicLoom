@@ -35,15 +35,17 @@ const DndWrapper: React.FC<ComponentProps> = ({ children }) => {
       const isTop = over?.data?.current?.isTop;
 
       if (overId) {
+        console.log(">>>", active?.data?.current, over?.data?.current);
+
+        const newFormItem = generateFormField({
+          type: active?.data?.current?.type || "",
+          is_form_item: active?.data?.current.isFormItem,
+          is_widget: active?.data?.current.isWidget,
+        });
+
         if (overId == "initial") {
-          const newFormItem = generateFormField({
-            type: active?.data?.current?.type || "",
-          });
           addForm(newFormItem);
         } else {
-          const newFormItem = generateFormField({
-            type: active?.data?.current?.type || "",
-          });
           const index = form.findIndex((item: any) => item.id == overId);
           if (index >= -1 && index < form.length) {
             const formCopy = [...form];
