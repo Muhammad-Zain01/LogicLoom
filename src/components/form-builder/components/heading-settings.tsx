@@ -31,7 +31,7 @@ const SizeSettings: React.FC<ComponentProps> = ({ question }) => {
           }}
         >
           <SelectTrigger className="w-full">
-            <SelectValue placeholder="Select a fruit" />
+            <SelectValue placeholder="Select Size" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>

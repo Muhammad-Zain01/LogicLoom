@@ -7,6 +7,8 @@ import {
   FaAlignLeft,
   FaAlignRight,
   FaBold,
+  FaItalic,
+  FaUnderline,
 } from "react-icons/fa6";
 
 type ComponentProps = {
@@ -16,53 +18,60 @@ type ComponentProps = {
 const AlignmentSettings: React.FC<ComponentProps> = ({ question }) => {
   const updateQuestion = useFormStore((state) => state.updateQuestion);
   const isBold = question?.settings?.is_bold || false;
+  const isItalic = question?.settings?.is_italic || false;
+  const isUnderline = question?.settings?.is_underline || false;
   const align = question?.settings?.align || "left";
+
+  const SelectorButton = ({
+    value,
+    isValue,
+    type,
+    children,
+  }: {
+    isValue: boolean;
+    value: string | boolean;
+    type: string;
+    children: React.ReactNode;
+  }) => {
+    return (
+      <Button
+        variant="outline"
+        className={clsx("w-full", isValue && "bg-gray-100")}
+        onClick={() => {
+          updateQuestion(question.id, {
+            settings: { ...question.settings, [type]: value },
+          });
+        }}
+      >
+        {children}
+      </Button>
+    );
+  };
+
   return (
     <div className="flex justify-center mt-3 gap-2">
-      <Button
-        variant="outline"
-        className={clsx("w-full", isBold && "bg-gray-100")}
-        onClick={() => {
-          updateQuestion(question.id, {
-            settings: { ...question.settings, is_bold: !isBold },
-          });
-        }}
+      <SelectorButton
+        type="is_underline"
+        isValue={isUnderline}
+        value={!isUnderline}
       >
+        <FaUnderline />
+      </SelectorButton>
+      <SelectorButton type="is_italic" isValue={isItalic} value={!isItalic}>
+        <FaItalic />
+      </SelectorButton>
+      <SelectorButton type="is_bold" isValue={isBold} value={!isBold}>
         <FaBold />
-      </Button>
-      <Button
-        variant="outline"
-        className={clsx("w-full", align == "left" && "bg-gray-100")}
-        onClick={() => {
-          updateQuestion(question.id, {
-            settings: { ...question.settings, align: "left" },
-          });
-        }}
-      >
+      </SelectorButton>
+      <SelectorButton type="align" isValue={align == "left"} value={"left"}>
         <FaAlignLeft />
-      </Button>
-      <Button
-        variant="outline"
-        className={clsx("w-full", align == "center" && "bg-gray-100")}
-        onClick={() => {
-          updateQuestion(question.id, {
-            settings: { ...question.settings, align: "center" },
-          });
-        }}
-      >
+      </SelectorButton>
+      <SelectorButton type="align" isValue={align == "center"} value={"center"}>
         <FaAlignCenter />
-      </Button>
-      <Button
-        variant="outline"
-        className={clsx("w-full", align == "right" && "bg-gray-100")}
-        onClick={() => {
-          updateQuestion(question.id, {
-            settings: { ...question.settings, align: "right" },
-          });
-        }}
-      >
+      </SelectorButton>
+      <SelectorButton type="align" isValue={align == "right"} value={"right"}>
         <FaAlignRight />
-      </Button>
+      </SelectorButton>
     </div>
   );
 };
