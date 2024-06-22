@@ -7,7 +7,8 @@ import { Fragment } from "react";
 import { UseFormReturn } from "react-hook-form";
 import QuestionItem from "./question-item";
 import { PlaceHolder } from "./placeholder";
-
+import Lottie from "lottie-react";
+import animation from "@/assets/animation";
 type ComponentProps = {
   form: UseFormReturn<any> | null;
 };
@@ -17,8 +18,22 @@ const FormQuestions: React.FC<ComponentProps> = ({ form }) => {
 
   if (formData && !formData.length) {
     return (
-      <div className="flex">
-        <PlaceHolder id="initial" isInitial />
+      <div className="flex flex-col">
+        <PlaceHolder
+          id="initial"
+          isInitial
+          InitialRender={
+            <div>
+              <div className="flex mt-10 items-center justify-center flex-col">
+                <Lottie
+                  animationData={animation.thinking}
+                  loop={true}
+                  className="w-[400px]"
+                />
+              </div>
+            </div>
+          }
+        />
       </div>
     );
   }

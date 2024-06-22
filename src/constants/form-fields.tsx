@@ -1,4 +1,4 @@
-import { FaHeading } from "react-icons/fa6";
+import { FaHeading, FaRegAddressCard } from "react-icons/fa6";
 import { IoCheckboxOutline } from "react-icons/io5";
 import { IoRadioButtonOnOutline } from "react-icons/io5";
 import { HiOutlineSelector } from "react-icons/hi";
@@ -45,21 +45,9 @@ export const FormFields: FormFieldType = {
       isFormItem: false,
     },
     {
-      label: "Caption",
-      type: "caption",
-      icon: <PiClosedCaptioningLight className={CLASSES} />,
-      isFormItem: false,
-    },
-    {
       label: "Description",
       type: "description",
       icon: <CiTextAlignJustify className={CLASSES} />,
-      isFormItem: false,
-    },
-    {
-      label: "Divider",
-      type: "divider",
-      icon: <RxDividerHorizontal className={CLASSES} />,
       isFormItem: false,
     },
   ],
@@ -143,9 +131,21 @@ export const FormFields: FormFieldType = {
       isFormItem: true,
     },
     {
+      label: "Address",
+      type: "address",
+      icon: <FaRegAddressCard className={CLASSES} />,
+      isFormItem: true,
+    },
+    {
       label: "Button",
       type: "button",
       icon: <LuFormInput className={CLASSES} />,
+      isFormItem: false,
+    },
+    {
+      label: "Divider",
+      type: "divider",
+      icon: <RxDividerHorizontal className={CLASSES} />,
       isFormItem: false,
     },
   ],
@@ -167,6 +167,7 @@ export const FormFields: FormFieldType = {
       type: "rating",
       icon: <FaRegStarHalfStroke className={CLASSES} />,
       isWidget: true,
+      isFormItem: true,
     },
     {
       label: "Appointment",

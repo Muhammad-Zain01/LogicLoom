@@ -7,7 +7,8 @@ export const PlaceHolder: React.FC<{
   id?: string;
   isTop?: boolean;
   isInitial?: boolean;
-}> = ({ id, isTop, isInitial = false }) => {
+  InitialRender?: React.ReactNode;
+}> = ({ id, isTop, isInitial = false, InitialRender }) => {
   const form = useFormStore((state) => state.form);
   const formIds = useMemo(() => form.map((item) => item.id), [form]);
   const { setNodeRef, isOver, active } = useDroppable({
@@ -36,6 +37,8 @@ export const PlaceHolder: React.FC<{
               }
             />
           )}
+
+          {!isOver && isInitial && InitialRender && InitialRender}
         </div>
       )}
     </div>

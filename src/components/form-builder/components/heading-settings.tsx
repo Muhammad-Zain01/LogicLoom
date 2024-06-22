@@ -24,6 +24,7 @@ const SizeSettings: React.FC<ComponentProps> = ({ question }) => {
       <div className="mt-2 space-y-2 ">
         <Label>Size</Label>
         <Select
+          defaultValue="small"
           onValueChange={(e) => {
             updateQuestion(question.id, {
               settings: { ...question.settings, size: e },

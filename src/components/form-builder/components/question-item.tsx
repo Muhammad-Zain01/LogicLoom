@@ -9,6 +9,7 @@ import QuestionWrapper from "./question-wrapper";
 import { Label } from "@/components/ui/label";
 import { FormItem as FormItemType } from "@/types/form";
 import FieldMap from "./field-map";
+import DescriptionWrapper from "./description-wrapper";
 
 type QuestionItemProps = {
   question: FormItemType;
@@ -21,7 +22,7 @@ const QuestionItem: React.FC<QuestionItemProps> = ({ question }) => {
     if (!Field) {
       return null;
     }
-    
+
     return <Field question={item} field={field} />;
   };
 
@@ -30,7 +31,9 @@ const QuestionItem: React.FC<QuestionItemProps> = ({ question }) => {
       {question.is_form_item ? (
         <div className="flex flex-col w-full p-2">
           <Label className="mb-3">{question.label}</Label>
-          {renderField(question)}
+          <DescriptionWrapper description={question.description}>
+            {renderField(question)}
+          </DescriptionWrapper>
         </div>
       ) : (
         <div className="w-full">{renderField(question)}</div>
