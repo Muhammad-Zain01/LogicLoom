@@ -1,6 +1,13 @@
-import FormBuilder from "@/components/form-builder/form-builder";
+import dynamic from "next/dynamic";
 
-const FormPage = () => {
+const FormBuilder = dynamic(
+  () => import("@/components/form-builder/form-builder"),
+  {
+    ssr: false,
+  }
+);
+
+const FormViewPage = () => {
   return (
     <div className="flex justify-center bg-gray-100 h-full overflow-scroll">
       <FormBuilder />
@@ -8,4 +15,4 @@ const FormPage = () => {
   );
 };
 
-export default FormPage;
+export default FormViewPage;

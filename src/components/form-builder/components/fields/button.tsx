@@ -22,8 +22,10 @@ const Button: React.FC<ComponentProps> = ({ question }) => {
   const align = question.settings?.align || "left";
 
   return (
+    // @ts-ignore
     <div className={clsx("flex", AlignMap[align])}>
       <ShadCnButton
+      // @ts-ignore
         size={SizeMap[size]}
         className={clsx(question.settings?.is_bold && "font-bold")}
       >

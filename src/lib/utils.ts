@@ -20,6 +20,7 @@ export function onPressEnter(e: any, callback: () => void) {
   }
 }
 
+// @ts-ignore
 function getNodeIntersection(intersectionNode, targetNode) {
   const {
     width: intersectionNodeWidth,
@@ -48,6 +49,7 @@ function getNodeIntersection(intersectionNode, targetNode) {
 }
 
 // returns the position (top,right,bottom or right) passed node compared to the intersection point
+// @ts-ignore
 function getEdgePosition(node, intersectionPoint) {
   const n = { ...node.positionAbsolute, ...node };
   const nx = Math.round(n.x);
@@ -72,6 +74,7 @@ function getEdgePosition(node, intersectionPoint) {
 }
 
 // returns the parameters (sx, sy, tx, ty, sourcePos, targetPos) you need to create an edge
+// @ts-ignore
 export function getEdgeParams(source, target) {
   const sourceIntersectionPoint = getNodeIntersection(source, target);
   const targetIntersectionPoint = getNodeIntersection(target, source);

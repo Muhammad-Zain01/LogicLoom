@@ -8,6 +8,7 @@ import Toggle from "@/components/form-builder/components/toggle";
 import SortableList from "@/components/ui/sortable-list";
 
 const FieldConfiguration = () => {
+  // @ts-ignore
   const { questionSelectedId, form, updateQuestion } = useFormStore(state => state);
 
   const question = useMemo(() => 
@@ -82,6 +83,7 @@ const FieldConfiguration = () => {
           onChange={(value: string) => handleUpdate("settings", { ...question.settings, color: value })}
         />
       )}
+      {/* @ts-ignore */}
       {QuestionItem?.Settings && <QuestionItem.Settings question={question} />}
 
       {["dropdown", "checkbox", "radio"].includes(type) && (

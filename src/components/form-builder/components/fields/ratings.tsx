@@ -8,7 +8,7 @@ type ComponentProps = {
   question: FormItem;
   onChange: (value: string) => void;
 };
-
+// @ts-ignore
 const Ratings: React.FC<ComponentProps> & { Settings?: React.FC; onChange } = ({
   question,
   onChange,
@@ -24,6 +24,7 @@ const Ratings: React.FC<ComponentProps> & { Settings?: React.FC; onChange } = ({
     <div>
       <div className="flex gap-3">
         {new Array(rating_count).fill(0).map((_, index) => {
+          // @ts-ignore
           if (answer > index) {
             return (
               <GoStarFill
@@ -66,14 +67,13 @@ const Settings: React.FC<{ question: FormItem }> = ({ question }) => {
             updateQuestion(question.id, {
               settings: { ...question.settings, rating_count: e.target.value },
             });
-            console.log();
           }}
         />
       </div>
     </>
   );
 };
-
+// @ts-ignore
 Ratings.Settings = Settings;
 Ratings.displayName = "phone";
 

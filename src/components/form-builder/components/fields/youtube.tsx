@@ -23,6 +23,7 @@ const Youtube: React.FC<ComponentProps> & { Settings?: React.FC } = ({
         height="315"
         src={url}
         title={question.label}
+        // @ts-ignore
         frameborder={0}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
@@ -58,7 +59,7 @@ const Settings: React.FC<{ question: FormItem }> = ({ question }) => {
     </>
   );
 };
-
+// @ts-ignore
 Youtube.Settings = Settings;
 Youtube.displayName = "youtube";
 

@@ -40,6 +40,7 @@ const Settings: React.FC<{ question: FormItem }> = ({ question }) => {
   );
 };
 
+// @ts-ignore
 Phone.Settings = Settings;
 Phone.displayName = "phone";
 

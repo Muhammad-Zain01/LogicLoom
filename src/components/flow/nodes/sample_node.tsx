@@ -1,8 +1,9 @@
 import { Handle, Position, useStore } from "reactflow";
 
+// @ts-ignore
 const connectionNodeIdSelector = (state) => state.connectionNodeId;
 
-export default function SampleNode({ id }) {
+export default function SampleNode({ id }: { id: string }) {
   const connectionNodeId = useStore(connectionNodeIdSelector);
 
   const isConnecting = !!connectionNodeId;

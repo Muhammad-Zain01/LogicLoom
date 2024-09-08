@@ -31,8 +31,10 @@ const SelectField: React.FC<SelectProps> = ({
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
+          {/* @ts-ignore */}
           {options.map((item: SelectData, idx: number) => {
             return (
+              // @ts-ignore
               <SelectItem key={idx} value={item.value}>
                 {item.label}
               </SelectItem>

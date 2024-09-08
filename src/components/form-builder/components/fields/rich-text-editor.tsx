@@ -1,8 +1,8 @@
+'use client'
 import { FormItem } from "@/types/form";
 import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { cn } from "@/lib/utils";
 
 type ComponentProps = {
   question: FormItem;

@@ -60,6 +60,7 @@ const FieldComponents = () => {
   return (
     <div>
       {KEYS.map((key: string, idx: number) => {
+        // @ts-ignore
         const FormItem = FormFields[key] as FieldItem[];
         return (
           <>

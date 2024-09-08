@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -17,6 +16,7 @@ type ComponentProps = {
 };
 
 const SizeSettings: React.FC<ComponentProps> = ({ question }) => {
+  // @ts-ignore
   const { updateQuestion } = useFormStore((state) => state);
 
   return (

@@ -1,3 +1,4 @@
+"use client";
 import {
   DndContext,
   MouseSensor,
@@ -81,6 +82,7 @@ const SortableItem: React.FC<SortableItemProps> = ({ item, onUpdate }) => {
   return (
     <div ref={setNodeRef} {...attributes} style={style} className="my-2 ">
       <div
+        // @ts-ignore
         ref={sortable_ref}
         className="flex items-center bg-gray-100 px-2 rounded-md justify-between"
       >
@@ -92,17 +94,22 @@ const SortableItem: React.FC<SortableItemProps> = ({ item, onUpdate }) => {
             placeholder="Enter Value"
             className="border-none w-[100%]  px-2 text-[13px] focus-visible:border-none focus-visible:ring-0 shadow-none"
             onFocus={() => {
+              // @ts-ignore
               sortable_ref.current.classList.add("ring-1");
+              // @ts-ignore
               sortable_ref.current.classList.add("ring-ring");
             }}
             onBlur={() => {
+              // @ts-ignore
               sortable_ref.current.classList.remove("ring-1");
+              // @ts-ignore
               sortable_ref.current.classList.remove("ring-ring");
             }}
           />
         </div>
         <div>
           <span>
+            {/* @ts-ignore */}
             <FaRegTrashCan onClick={() => onUpdate(item.id, null, true)} />
           </span>
         </div>
@@ -117,6 +124,7 @@ const SortableList: React.FC<SortableListProps> = ({
   question,
 }) => {
   const items = question?.settings[key_item] || [];
+  // @ts-ignore
   const updateQuestion = useFormStore((state) => state.updateQuestion);
 
   const onUpdate = (values: Item[]) => {

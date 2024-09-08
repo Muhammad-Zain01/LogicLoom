@@ -1,3 +1,4 @@
+'use client'
 import { useFormStore } from "@/store/form";
 import {
   SortableContext,

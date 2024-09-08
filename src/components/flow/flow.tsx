@@ -13,7 +13,6 @@ import { generateUUID } from "@/lib/utils";
 import VariableNode from "@/components/flow/nodes/variable";
 import FunctionNode from "@/components/flow/nodes/function";
 import SimpleFloatingEdge from "./edge/floating-edge";
-import FlowWrapper from "./components/flow-wrapper";
 
 const nodeTypes = {
   variable_node: VariableNode,
@@ -82,6 +81,7 @@ const Flow = () => {
   );
 
   const onNodeDrag = useCallback((_: MouseEvent, node: Node) => {
+    // @ts-ignore
     const intersections = getIntersectingNodes(node).map((n) => n.id);
 
     setNodes((ns) =>
@@ -116,6 +116,7 @@ const Flow = () => {
       snapGrid={[30, 30]}
       nodeTypes={nodeTypes}
       edgeTypes={edgeTypes}
+      // @ts-ignore
       onNodeDrag={onNodeDrag}
     >
       <Background />

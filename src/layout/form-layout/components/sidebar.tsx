@@ -1,7 +1,10 @@
 import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tabs } from "@radix-ui/react-tabs";
 import FieldComponents from "./field-components";
-import FieldConfiguration from "./field-configuration";
+import dynamic from "next/dynamic";
+const FieldConfiguration = dynamic(() => import("./field-configuration"), {
+  ssr: false,
+});
 
 const Sidebar = () => {
   return (

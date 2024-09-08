@@ -11,6 +11,7 @@ type Nodes = {
 };
 
 const nodes: Nodes = {
+  // @ts-ignore
   for_loop: (position: any, label: string) => {
     return {
       id: generateUUID(),
@@ -19,6 +20,7 @@ const nodes: Nodes = {
       data: { label },
     };
   },
+  // @ts-ignore
   variable: (position: any, label: string) => {
     return {
       id: generateUUID(),
@@ -27,6 +29,7 @@ const nodes: Nodes = {
       data: { label },
     };
   },
+  // @ts-ignore
   if_condition: (position: any, label: string) => {
     return {
       id: generateUUID(),

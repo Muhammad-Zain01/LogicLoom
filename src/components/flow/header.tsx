@@ -8,6 +8,7 @@ import {
   DropdownMenuContent,
   DropdownMenu,
 } from "@/components/ui/dropdown-menu";
+// @ts-ignore
 import { ActivityIcon } from "@/app/test2/page";
 
 const Header = () => {

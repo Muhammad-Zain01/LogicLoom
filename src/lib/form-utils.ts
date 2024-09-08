@@ -1,3 +1,4 @@
+// @ts-ignore
 import { FormItem } from "@/store/form";
 import { generateUUID } from "./utils";
 

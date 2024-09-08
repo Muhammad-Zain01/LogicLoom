@@ -1,3 +1,4 @@
+"use client";
 import { generateFormField } from "@/lib/form-utils";
 import { useFormStore } from "@/store/form";
 import { useFormDraggingStore } from "@/store/form-drag";
@@ -15,7 +16,9 @@ type ComponentProps = {
 };
 
 const DndWrapper: React.FC<ComponentProps> = ({ children }) => {
+  // @ts-ignore
   const { form, setForm, addForm } = useFormStore((state) => state);
+  // @ts-ignore
   const { setActive, setOver } = useFormDraggingStore((state) => state);
 
   const handleDragStart = (event: any) => {

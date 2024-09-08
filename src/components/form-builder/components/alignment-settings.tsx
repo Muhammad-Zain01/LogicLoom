@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { useFormStore } from "@/store/form";
 import { FormItem } from "@/types/form";

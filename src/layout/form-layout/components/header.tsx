@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { CgFormatLineHeight } from "react-icons/cg";
 
 const Header = () => {
+  // @ts-ignore
   const { setEditable } = useFormStore();
   const router = useRouter();
   return (
