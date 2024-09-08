@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { FormItem } from "@/types/form";
 
@@ -8,25 +8,19 @@ type ComponentProps = {
   onChange: (value: string) => void;
 };
 
-const CheckboxItem: React.FC<ComponentProps> = ({ question, onChange }) => {
+const RadioItem: React.FC<ComponentProps> = ({ question, onChange }) => {
   const list_values = question?.settings?.list_values;
-  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+  const [selectedValue, setSelectedValue] = useState<string>("");
 
   useEffect(() => {
     if (question.answer) {
-      setSelectedValues(JSON.parse(question.answer));
+      setSelectedValue(question.answer);
     }
   }, [question.answer]);
 
-  const handleCheckboxChange = (label: string, checked: boolean) => {
-    let newSelectedValues;
-    if (checked) {
-      newSelectedValues = [...selectedValues, label];
-    } else {
-      newSelectedValues = selectedValues.filter(value => value !== label);
-    }
-    setSelectedValues(newSelectedValues);
-    onChange(JSON.stringify(newSelectedValues));
+  const handleRadioChange = (value: string) => {
+    setSelectedValue(value);
+    onChange(value);
   };
 
   return (
@@ -35,18 +29,21 @@ const CheckboxItem: React.FC<ComponentProps> = ({ question, onChange }) => {
         <p className="text-sm text-gray-500">{question.description}</p>
       )}
       {list_values && list_values.length > 0 ? (
-        <div className="flex flex-wrap gap-5">
+        <RadioGroup
+          value={selectedValue}
+          onValueChange={handleRadioChange}
+          className="flex flex-col space-y-2"
+        >
           {list_values.map((value: { label: string }, index: number) => (
             <div key={index} className="flex items-center space-x-2">
-              <Checkbox
+              <RadioGroupItem
+                value={value.label}
                 id={`${question.id}-${index}`}
-                checked={selectedValues.includes(value.label)}
-                onCheckedChange={(checked) => handleCheckboxChange(value.label, checked as boolean)}
               />
               <Label htmlFor={`${question.id}-${index}`}>{value.label}</Label>
             </div>
           ))}
-        </div>
+        </RadioGroup>
       ) : (
         <p className="text-center text-gray-400 text-xs">No Values Found</p>
       )}
@@ -54,4 +51,4 @@ const CheckboxItem: React.FC<ComponentProps> = ({ question, onChange }) => {
   );
 };
 
-export default CheckboxItem;
+export default RadioItem;

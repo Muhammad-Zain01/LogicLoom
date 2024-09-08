@@ -6,19 +6,18 @@ import { GoStar, GoStarFill } from "react-icons/go";
 
 type ComponentProps = {
   question: FormItem;
+  onChange: (value: string) => void;
 };
 
-const Ratings: React.FC<ComponentProps> & { Settings?: React.FC } = ({
+const Ratings: React.FC<ComponentProps> & { Settings?: React.FC; onChange } = ({
   question,
+  onChange,
 }) => {
-  const updateQuestion = useFormStore((state) => state.updateQuestion);
   let rating_count = Number(question.settings?.rating_count) || 5;
   rating_count = rating_count > 10 ? 10 : rating_count < 3 ? 3 : rating_count;
   const answer = question.answer || 0;
   const onClickRating = (rating: string) => {
-    updateQuestion(question.id, {
-      answer: rating,
-    });
+    onChange(rating);
   };
 
   return (

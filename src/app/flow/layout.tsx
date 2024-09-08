@@ -1,4 +1,4 @@
-import DashboardLayout from "@/layout/dashboard-layout";
+import FlowLayout from "@/layout/flow-layout";
 import GlobalLayout from "@/layout/global-layout";
 export default function RootLayout({
   children,
@@ -7,7 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <GlobalLayout>
-      <DashboardLayout>{children}</DashboardLayout>
+      <FlowLayout>{children}</FlowLayout>
     </GlobalLayout>
   );
 }

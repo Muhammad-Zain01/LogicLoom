@@ -124,18 +124,18 @@ export const FormFields: FormFieldType = {
       icon: <BsCurrencyDollar className={CLASSES} />,
       isFormItem: true,
     },
-    {
-      label: "Phone",
-      type: "phone",
-      icon: <FiPhone className={CLASSES} />,
-      isFormItem: true,
-    },
-    {
-      label: "Address",
-      type: "address",
-      icon: <FaRegAddressCard className={CLASSES} />,
-      isFormItem: true,
-    },
+    // {
+    //   label: "Phone",
+    //   type: "phone",
+    //   icon: <FiPhone className={CLASSES} />,
+    //   isFormItem: true,
+    // },
+    // {
+    //   label: "Address",
+    //   type: "address",
+    //   icon: <FaRegAddressCard className={CLASSES} />,
+    //   isFormItem: true,
+    // },
     {
       label: "Button",
       type: "button",
@@ -150,12 +150,12 @@ export const FormFields: FormFieldType = {
     },
   ],
   Widgets: [
-    {
-      label: "Signature",
-      type: "sign",
-      icon: <FaSignature className={CLASSES} />,
-      isWidget: true,
-    },
+    // {
+    //   label: "Signature",
+    //   type: "sign",
+    //   icon: <FaSignature className={CLASSES} />,
+    //   isWidget: true,
+    // },
     {
       label: "Youtube",
       type: "youtube",
@@ -169,11 +169,11 @@ export const FormFields: FormFieldType = {
       isWidget: true,
       isFormItem: true,
     },
-    {
-      label: "Appointment",
-      type: "appointment",
-      icon: <SlCalender className={CLASSES} />,
-      isWidget: true,
-    },
+    // {
+    //   label: "Appointment",
+    //   type: "appointment",
+    //   icon: <SlCalender className={CLASSES} />,
+    //   isWidget: true,
+    // },
   ],
 };

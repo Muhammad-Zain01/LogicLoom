@@ -1,31 +1,22 @@
-import { Input } from "@/components/ui/input";
+"use client";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenuTrigger,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuItem,
-  DropdownMenuContent,
-  DropdownMenu,
-} from "@/components/ui/dropdown-menu";
-import { TrashIcon } from "@radix-ui/react-icons";
 import { Switch } from "@/components/ui/switch";
 import { useFormStore } from "@/store/form";
+import { useRouter } from "next/navigation";
+import { CgFormatLineHeight } from "react-icons/cg";
+
 const Header = () => {
   const { setEditable } = useFormStore();
+  const router = useRouter();
   return (
-    <header className="flex h-full items-center border-b bg-gray-100 px-6 dark:border-gray-800 dark:bg-gray-950">
-      <div className="flex-1">
-        <form>
-          <div className="relative">
-            <TrashIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400" />
-            <Input
-              className="w-full bg-white shadow-none appearance-none pl-8 md:w-2/3 lg:w-1/3 dark:bg-gray-950"
-              placeholder="Search widgets..."
-              type="search"
-            />
-          </div>
-        </form>
+    <header className="flex h-16 items-center w-full border-b bg-gray-100 px-6 dark:border-gray-800 dark:bg-gray-950">
+      <div className="flex-1 border-b bg-gray-100 dark:border-gray-800 dark:bg-gray-950">
+        <div className="flex bg-gray-100 items-center w-full h-16 p-3 gap-3">
+          <CgFormatLineHeight size={18} />
+          <h2 className="text-[18px] font-semibold text-gray-900 dark:text-gray-50">
+            Form Builder
+          </h2>
+        </div>
       </div>
       <div className="flex items-center">
         <Switch
@@ -35,36 +26,15 @@ const Header = () => {
         />{" "}
         <span className="text-sm mx-3">Preview Mode</span>
       </div>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button
-            className="rounded-full border border-gray-200 w-8 h-8 dark:border-gray-800"
-            size="icon"
-            variant="ghost"
-          >
-            <img
-              alt="Avatar"
-              className="rounded-full"
-              height="32"
-              src="/next.svg"
-              style={{
-                aspectRatio: "32/32",
-                objectFit: "cover",
-              }}
-              width="32"
-            />
-            <span className="sr-only">Toggle user menu</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Settings</DropdownMenuItem>
-          <DropdownMenuItem>Support</DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Logout</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <Button
+        variant="outline"
+        className="rounded-lg ml-3 text-gray-500"
+        onClick={() => {
+          router.push("flow");
+        }}
+      >
+        Check Flow Builder
+      </Button>
     </header>
   );
 };

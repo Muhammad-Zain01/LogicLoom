@@ -7,6 +7,7 @@ export const DefaultFormField: FormItem = {
   label: "Untitled",
   placeholder: "",
   description: "",
+  answer: null,
   is_required: true,
   is_readonly: false,
   is_form_item: true,

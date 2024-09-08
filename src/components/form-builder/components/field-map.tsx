@@ -11,6 +11,12 @@ import Phone from "./fields/phone";
 import Ratings from "./fields/ratings";
 import SelectBox from "./fields/checkbox";
 import Youtube from "./fields/youtube";
+import RadioItem from "./fields/radio";
+import RichTextEditor from "./fields/rich-text-editor";
+import DateItem from "./fields/date";
+import DateTimeItem from "./fields/date-time";
+import DateRangeItem from "./fields/date-range";
+import TimeItem from "./fields/time";
 
 const FieldMap = {
   short_text: ShortText,
@@ -26,6 +32,12 @@ const FieldMap = {
   rating: Ratings,
   checkbox: SelectBox,
   youtube: Youtube,
+  radio: RadioItem,
+  rich_text: RichTextEditor,
+  date: DateItem,
+  date_time: DateTimeItem,
+  date_range: DateRangeItem,
+  time: TimeItem,
 };
 
 export default FieldMap;

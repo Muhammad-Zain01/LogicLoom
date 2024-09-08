@@ -1,6 +1,7 @@
 import { CardContent, Card } from "@/components/ui/card";
 import { Widgets } from "@/constants/widgets";
 import { TrashIcon } from "@radix-ui/react-icons";
+import { GoWorkflow } from "react-icons/go";
 
 type ItemWrapperProps = {
   label: string;
@@ -35,10 +36,10 @@ const Sidebar = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex bg-gray-100 items-center border w-full h-16 border-gray-200 dark:border-gray-700 p-3 ">
-        <TrashIcon className="h-6 w-6 text-gray-500 dark:text-gray-400 mr-2" />
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-50">
-          Dashboard
+      <div className="flex bg-gray-100 px-6 items-center border w-full h-16 border-gray-200 dark:border-gray-700 p-3 gap-3">
+        <GoWorkflow size={18} />
+        <h2 className="text-[18px] font-semibold text-gray-900 dark:text-gray-50">
+          Flow Builder
         </h2>
       </div>
       <div className="bg-gray-100 dark:bg-gray-800 w-64 p-6 border-r border-gray-200 dark:border-gray-700 h-full">

@@ -1,51 +1,48 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import SelectField from "@/components/ui/select-field";
 import currencies from "@/constants/currencies";
 import { useFormStore } from "@/store/form";
 import { FormItem } from "@/types/form";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 type ComponentProps = {
   question: FormItem;
+  onChange: (value: string) => void;
 };
 
-const Currency: React.FC<ComponentProps> & { Settings?: React.FC } = ({
+const Currency: React.FC<ComponentProps> & { Settings?: React.FC<{ question: FormItem }> } = ({
   question,
+  onChange,
 }) => {
-  const currencyRef = useRef();
-  //
+  const currencyRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (question.answer) {
+      onChange(question.answer);
+    }
+  }, [question.answer, onChange]);
+
   return (
     <div
       ref={currencyRef}
-      id="current"
-      className="flex  items-center  border border-input pl-3 rounded"
+      className="flex items-center border border-input pl-3 rounded"
     >
       <span className="text-gray-500 text-xs">
         {question?.settings?.currency || "USD"}
       </span>
       <Input
         type="number"
-        prefix="$"
-        placeholder={question.placeholder || "Enter your text"}
+        value={question.answer || ""}
+        placeholder={question.placeholder || "Enter amount"}
         className="border-none focus-visible:border-none focus-visible:ring-0 shadow-none"
+        onChange={(e) => onChange(e.target.value)}
         onFocus={() => {
-          currencyRef.current.classList.add("ring-1");
-          currencyRef.current.classList.add("ring-ring");
+          currencyRef.current?.classList.add("ring-1", "ring-ring");
         }}
         onBlur={() => {
-          currencyRef.current.classList.remove("ring-1");
-          currencyRef.current.classList.remove("ring-ring");
+          currencyRef.current?.classList.remove("ring-1", "ring-ring");
         }}
       />
     </div>
