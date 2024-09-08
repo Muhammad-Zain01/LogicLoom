@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-<img src="https://raw.githubusercontent.com/Muhammad-Zain01/LogicLoom/main/preview1.png" style="background:white;width: 320px;" />
+<img src="https://github.com/Muhammad-Zain01/LogicLoom/blob/main/preview/icon.png" style="background:white;width: 320px;" />
 <h3 align="center">Logic Loom</h3>
 <div>
     <a href="https://github.com/muhammad-zain01/LogicLoom/graphs/contributors"><img src="https://img.shields.io/github/contributors/muhammad-zain01/LogicLoom.svg?style=for-the-badge" /></a>
@@ -13,13 +13,14 @@
 LogicLoom is a powerful tool designed to simplify the process of creating forms and designing workflows. With its two core features, Form Builder and Flow Builder, LogicLoom empowers users to create dynamic, interactive forms and design complex logical flows with ease.
 
   </p>
-    <a href="https://json-viewer.muhammad-zain.com/"><strong>View Demo »</strong></a>
+    <a href="https://logicloom-1.vercel.app/"><strong>View Demo »</strong></a>
     <br />
 <br />
 
 </div>
 
-[![Preview][product-screenshot]](https://json-viewer.muhammad-zain.com/)
+[![Preview][product-screenshot]](https://logicloom-1.vercel.app/)
+[![Preview][product-screenshot2]](https://logicloom-1.vercel.app/)
 
 ### Built With
 
@@ -60,8 +61,8 @@ Open [http://localhost:3000](http://localhost:5173) with your browser to see the
 [license-url]: https://github.com/muhammad-zain01/LogicLoom/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: https://raw.githubusercontent.com/Muhammad-Zain01/LogicLoom/main/preview.png
-[product-screenshot2]: https://raw.githubusercontent.com/Muhammad-Zain01/LogicLoom/main/preview2.png
+[product-screenshot]: https://github.com/Muhammad-Zain01/LogicLoom/blob/main/preview/preview1.png
+[product-screenshot2]: https://github.com/Muhammad-Zain01/LogicLoom/blob/main/preview/preview2.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Express.js]: https://img.shields.io/badge/express.js-f1dd1c?style=for-the-badge
 [Node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
