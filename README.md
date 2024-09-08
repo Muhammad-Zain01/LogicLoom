@@ -1,7 +1,7 @@
 <br />
 <div align="center">
 <img src="https://raw.githubusercontent.com/Muhammad-Zain01/json_viewer/main/preview1.png" style="background:white;width: 320px;" />
-<h3 align="center">JSON Viewer</h3>
+<h3 align="center">Logic Loom</h3>
 <div>
     <a href="https://github.com/muhammad-zain01/json_viewer/graphs/contributors"><img src="https://img.shields.io/github/contributors/muhammad-zain01/json_viewer.svg?style=for-the-badge" /></a>
     <a href="https://github.com/muhammad-zain01/json_viewer/network/members"><img src="https://img.shields.io/github/forks/muhammad-zain01/json_viewer.svg?style=for-the-badge" /></a>
@@ -10,11 +10,8 @@
 </div>
 
   <p align="center" style="text-align: justify;">
-This JSON Viewer is a user-friendly tool designed to simplify the process of viewing JSON data. With its intuitive interface, users can easily navigate through JSON structures, making it effortless to understand and analyze the data.
+LogicLoom is a powerful tool designed to simplify the process of creating forms and designing workflows. With its two core features, Form Builder and Flow Builder, LogicLoom empowers users to create dynamic, interactive forms and design complex logical flows with ease.
 
-One of the key features of the JSON Viewer is its functionality, which includes the ability to load JSON from both local files and URLs. This allows users to effortlessly import JSON data from various sources, enabling seamless integration with their workflows.
-
-Additionally, the JSON Viewer offers support for multiple tabs, allowing users to work with multiple JSON documents simultaneously. This feature enhances productivity by enabling users to switch between different datasets without losing their progress.
 
   </p>
     <a href="https://json-viewer.muhammad-zain.com/"><strong>View Demo »</strong></a>
