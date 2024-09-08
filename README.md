@@ -12,16 +12,12 @@
   <p align="center" style="text-align: justify;">
 LogicLoom is a powerful tool designed to simplify the process of creating forms and designing workflows. With its two core features, Form Builder and Flow Builder, LogicLoom empowers users to create dynamic, interactive forms and design complex logical flows with ease.
 
-
   </p>
     <a href="https://json-viewer.muhammad-zain.com/"><strong>View Demo »</strong></a>
     <br />
 <br />
-    <a href="https://www.producthunt.com/posts/json-viewer-5?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-json&#0045;viewer&#0045;5" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=454302&theme=light" alt="JSON&#0032;Viewer - Your&#0032;Ultimate&#0032;JSON&#0032;Viewer | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-        <br />
-    <br />
-</div>
 
+</div>
 
 [![Preview][product-screenshot]](https://json-viewer.muhammad-zain.com/)
 
