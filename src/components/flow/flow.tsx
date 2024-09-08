@@ -70,7 +70,7 @@ const Flow = () => {
           id: generateUUID(),
           type: type,
           position,
-          data: { label: `${type} node` },
+          data: { label: `Label` },
         };
 
         setNodes((nds) => nds.concat(newNode));
