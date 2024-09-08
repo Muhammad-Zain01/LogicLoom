@@ -5,6 +5,7 @@ import { useFormStore } from "@/store/form";
 import { useMemo } from "react";
 import FieldMap from "@/components/form-builder/components/field-map";
 import Toggle from "@/components/form-builder/components/toggle";
+import SortableList from "@/components/ui/sortable-list";
 const FieldConfiguration = () => {
   const { questionSelectedId, form, updateQuestion } = useFormStore(
     (state) => state
@@ -67,19 +68,28 @@ const FieldConfiguration = () => {
         </>
       )}
 
-      {["heading", "button",'description'].includes(question.type) && (
+      {["heading", "button", "description"].includes(question.type) && (
         <SizeSettings question={question} />
       )}
-      <ColorSelector
-        value={question.settings?.color}
-        onChange={(value: string) => {
-          updateQuestion(question.id, {
-            settings: { ...question.settings, color: value },
-          });
-        }}
-      />
-
+      {["heading", "description", "button"].includes(question.type) && (
+        <ColorSelector
+          value={question.settings?.color}
+          onChange={(value: string) => {
+            updateQuestion(question.id, {
+              settings: { ...question.settings, color: value },
+            });
+          }}
+        />
+      )}
       {QuestionItem?.Settings && <QuestionItem.Settings question={question} />}
+
+      {["dropdown", "checkbox", "radio"].includes(question.type) && (
+        <SortableList
+          label="Values"
+          key_item="list_values"
+          question={question}
+        />
+      )}
     </div>
   );
 };

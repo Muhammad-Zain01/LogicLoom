@@ -13,9 +13,9 @@ type SelectData = {
 };
 type SelectProps = {
   placeholder: string;
-  value: string;
-  onChange: (value: string) => void;
-  options: SelectData[];
+  value?: string;
+  onChange?: (value: string) => void;
+  options?: SelectData[];
 };
 
 const SelectField: React.FC<SelectProps> = ({

@@ -9,6 +9,8 @@ import Currency from "./fields/currency";
 import Description from "./fields/description";
 import Phone from "./fields/phone";
 import Ratings from "./fields/ratings";
+import SelectBox from "./fields/checkbox";
+import Youtube from "./fields/youtube";
 
 const FieldMap = {
   short_text: ShortText,
@@ -22,6 +24,8 @@ const FieldMap = {
   description: Description,
   phone: Phone,
   rating: Ratings,
+  checkbox: SelectBox,
+  youtube: Youtube,
 };
 
 export default FieldMap;

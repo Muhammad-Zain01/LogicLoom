@@ -21,12 +21,12 @@ const QuestionWrapper: React.FC<QuestionWrapperProps> = ({ id, children }) => {
   } = useSortable({
     id,
   });
-  const { questionSelectedId, selectQuestion, removeFormQuestion } =
+  const { questionSelectedId, selectQuestion, removeFormQuestion, editable } =
     useFormStore((state) => state);
 
   const isSelected = questionSelectedId == id;
   const style = { transition, transform: CSS.Transform.toString(transform) };
-
+  if (!editable) return <div className="my-2">{children}</div>;
   return (
     <div
       ref={setNodeRef}

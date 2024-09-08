@@ -9,7 +9,10 @@ import {
   DropdownMenu,
 } from "@/components/ui/dropdown-menu";
 import { TrashIcon } from "@radix-ui/react-icons";
+import { Switch } from "@/components/ui/switch";
+import { useFormStore } from "@/store/form";
 const Header = () => {
+  const { setEditable } = useFormStore();
   return (
     <header className="flex h-full items-center border-b bg-gray-100 px-6 dark:border-gray-800 dark:bg-gray-950">
       <div className="flex-1">
@@ -23,6 +26,14 @@ const Header = () => {
             />
           </div>
         </form>
+      </div>
+      <div className="flex items-center">
+        <Switch
+          onCheckedChange={(e) => {
+            setEditable(!e);
+          }}
+        />{" "}
+        <span className="text-sm mx-3">Preview Mode</span>
       </div>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

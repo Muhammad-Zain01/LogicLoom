@@ -152,13 +152,13 @@ export const FormFields: FormFieldType = {
   Widgets: [
     {
       label: "Signature",
-      type: "multi_line",
+      type: "sign",
       icon: <FaSignature className={CLASSES} />,
       isWidget: true,
     },
     {
       label: "Youtube",
-      type: "multi_line",
+      type: "youtube",
       icon: <FaYoutube className={CLASSES} />,
       isWidget: true,
     },

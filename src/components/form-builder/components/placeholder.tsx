@@ -9,7 +9,7 @@ export const PlaceHolder: React.FC<{
   isInitial?: boolean;
   InitialRender?: React.ReactNode;
 }> = ({ id, isTop, isInitial = false, InitialRender }) => {
-  const form = useFormStore((state) => state.form);
+  const { form, editable } = useFormStore((state) => state);
   const formIds = useMemo(() => form.map((item) => item.id), [form]);
   const { setNodeRef, isOver, active } = useDroppable({
     id: `${id}-${isTop ? "top" : "bottom"}`,
@@ -18,7 +18,7 @@ export const PlaceHolder: React.FC<{
       isTop: isTop,
     },
   });
-
+  if (!editable) return null;
   return (
     <div
       className={clsx(

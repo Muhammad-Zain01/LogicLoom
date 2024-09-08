@@ -1,14 +1,5 @@
 "use client";
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import SelectField from "@/components/ui/select-field";
 import { FormItem } from "@/types/form";
 
 type ComponentProps = {
@@ -16,22 +7,22 @@ type ComponentProps = {
 };
 
 const Dropdown: React.FC<ComponentProps> = ({ question }) => {
+  console.log(
+    (question?.settings?.list_values || [])?.map((item: any) => ({
+      label: item.label,
+      value: item.label,
+    }))
+  );
   return (
-    <Select>
-      <SelectTrigger>
-        <SelectValue placeholder={question.placeholder || "Select a value"} />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="blueberry">Blueberry</SelectItem>
-          <SelectItem value="grapes">Grapes</SelectItem>
-          <SelectItem value="pineapple">Pineapple</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <SelectField
+      placeholder={question.placeholder || "Select a value"}
+      options={(question?.settings?.list_values || [])
+        .map((item: any) => ({
+          label: item.label,
+          value: item.label,
+        }))
+        .filter((item: any) => item.value)}
+    />
   );
 };
 
