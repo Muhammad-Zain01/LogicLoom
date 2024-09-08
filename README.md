@@ -1,12 +1,12 @@
 <br />
 <div align="center">
-<img src="https://raw.githubusercontent.com/Muhammad-Zain01/json_viewer/main/preview1.png" style="background:white;width: 320px;" />
+<img src="https://raw.githubusercontent.com/Muhammad-Zain01/LogicLoom/main/preview1.png" style="background:white;width: 320px;" />
 <h3 align="center">Logic Loom</h3>
 <div>
-    <a href="https://github.com/muhammad-zain01/json_viewer/graphs/contributors"><img src="https://img.shields.io/github/contributors/muhammad-zain01/json_viewer.svg?style=for-the-badge" /></a>
-    <a href="https://github.com/muhammad-zain01/json_viewer/network/members"><img src="https://img.shields.io/github/forks/muhammad-zain01/json_viewer.svg?style=for-the-badge" /></a>
-    <a href="https://github.com/muhammad-zain01/json_viewer/stargazers"><img src="https://img.shields.io/github/stars/muhammad-zain01/json_viewer.svg?style=for-the-badge" /></a>
-    <a href="https://github.com/muhammad-zain01/json_viewer/issues"><img src="https://img.shields.io/github/issues/muhammad-zain01/json_viewer.svg?style=for-the-badge" /></a>
+    <a href="https://github.com/muhammad-zain01/LogicLoom/graphs/contributors"><img src="https://img.shields.io/github/contributors/muhammad-zain01/LogicLoom.svg?style=for-the-badge" /></a>
+    <a href="https://github.com/muhammad-zain01/LogicLoom/network/members"><img src="https://img.shields.io/github/forks/muhammad-zain01/LogicLoom.svg?style=for-the-badge" /></a>
+    <a href="https://github.com/muhammad-zain01/LogicLoom/stargazers"><img src="https://img.shields.io/github/stars/muhammad-zain01/LogicLoom.svg?style=for-the-badge" /></a>
+    <a href="https://github.com/muhammad-zain01/LogicLoom/issues"><img src="https://img.shields.io/github/issues/muhammad-zain01/LogicLoom.svg?style=for-the-badge" /></a>
 </div>
 
   <p align="center" style="text-align: justify;">
@@ -34,11 +34,11 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/muhammad-zain01/json_viewer.git
+   git clone https://github.com/muhammad-zain01/LogicLoom.git
    ```
 2. Install NPM packages
    ```sh
-    cd json_viewer
+    cd LogicLoom
     npm install
    ```
 3. For Starting Server
@@ -48,20 +48,20 @@ To get a local copy up and running follow these simple example steps.
 
 Open [http://localhost:3000](http://localhost:5173) with your browser to see the result.
 
-[contributors-shield]: https://img.shields.io/github/contributors/muhammad-zain01/json_viewer.svg?style=for-the-badge
-[contributors-url]: https://github.com/muhammad-zain01/json_viewer/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/muhammad-zain01/json_viewer.svg?style=for-the-badge
-[forks-url]: https://github.com/muhammad-zain01/json_viewer/network/members
-[stars-shield]: https://img.shields.io/github/stars/muhammad-zain01/json_viewer.svg?style=for-the-badge
-[stars-url]: https://github.com/muhammad-zain01/json_viewer/stargazers
-[issues-shield]: https://img.shields.io/github/issues/muhammad-zain01/json_viewer.svg?style=for-the-badge
-[issues-url]: https://github.com/muhammad-zain01/json_viewer/issues
-[license-shield]: https://img.shields.io/github/license/muhammad-zain01/json_viewer.svg?style=for-the-badge
-[license-url]: https://github.com/muhammad-zain01/json_viewer/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/muhammad-zain01/LogicLoom.svg?style=for-the-badge
+[contributors-url]: https://github.com/muhammad-zain01/LogicLoom/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/muhammad-zain01/LogicLoom.svg?style=for-the-badge
+[forks-url]: https://github.com/muhammad-zain01/LogicLoom/network/members
+[stars-shield]: https://img.shields.io/github/stars/muhammad-zain01/LogicLoom.svg?style=for-the-badge
+[stars-url]: https://github.com/muhammad-zain01/LogicLoom/stargazers
+[issues-shield]: https://img.shields.io/github/issues/muhammad-zain01/LogicLoom.svg?style=for-the-badge
+[issues-url]: https://github.com/muhammad-zain01/LogicLoom/issues
+[license-shield]: https://img.shields.io/github/license/muhammad-zain01/LogicLoom.svg?style=for-the-badge
+[license-url]: https://github.com/muhammad-zain01/LogicLoom/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: https://raw.githubusercontent.com/Muhammad-Zain01/json_viewer/main/preview.png
-[product-screenshot2]: https://raw.githubusercontent.com/Muhammad-Zain01/json_viewer/main/preview2.png
+[product-screenshot]: https://raw.githubusercontent.com/Muhammad-Zain01/LogicLoom/main/preview.png
+[product-screenshot2]: https://raw.githubusercontent.com/Muhammad-Zain01/LogicLoom/main/preview2.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Express.js]: https://img.shields.io/badge/express.js-f1dd1c?style=for-the-badge
 [Node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
