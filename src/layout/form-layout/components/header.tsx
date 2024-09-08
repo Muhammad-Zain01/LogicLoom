@@ -1,4 +1,5 @@
 "use client";
+import GithubButton from "@/components/form-builder/components/github-button";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { useFormStore } from "@/store/form";
@@ -35,6 +36,7 @@ const Header = () => {
       >
         Check Flow Builder
       </Button>
+      <GithubButton />
     </header>
   );
 };
