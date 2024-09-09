@@ -20,7 +20,8 @@ const Header = () => {
           </h2>
         </div>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center ">
+       
         <Switch
           onCheckedChange={(e) => {
             setEditable(!e);

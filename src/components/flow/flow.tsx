@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import ReactFlow, {
   addEdge,
   useNodesState,
@@ -28,6 +28,22 @@ const Flow = () => {
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
   const { getIntersectingNodes } = useReactFlow();
 
+  useEffect(() => {
+    const savedFlow = localStorage.getItem("reactflow");
+    if (savedFlow) {
+      const flow = JSON.parse(savedFlow);
+      setNodes(flow.nodes || []);
+      setEdges(flow.edges || []);
+    }
+  }, [setNodes, setEdges]);
+
+  useEffect(() => {
+    if (nodes.length || edges.length) {
+      const flow = { nodes, edges };
+      localStorage.setItem("reactflow", JSON.stringify(flow));
+    }
+  }, [nodes, edges]);
+
   const onConnect = useCallback(
     (params: any) => {
       const updatedParams = {
@@ -36,8 +52,6 @@ const Flow = () => {
         type: "floating",
         animated: true,
       };
-
-      console.log("params", params);
 
       setEdges((eds) => addEdge(updatedParams, eds));
     },
@@ -65,11 +79,13 @@ const Flow = () => {
           x: event.clientX,
           y: event.clientY,
         });
+
+        const [nodeType, subType] = type.split("|");
         const newNode = {
           id: generateUUID(),
-          type: type,
+          type: nodeType,
           position,
-          data: { label: `Label` },
+          data: { subType: subType },
         };
 
         setNodes((nds) => nds.concat(newNode));
@@ -95,6 +111,7 @@ const Flow = () => {
         return n;
       })
     );
+    // eslint-disable-next-line
   }, []);
 
   return (

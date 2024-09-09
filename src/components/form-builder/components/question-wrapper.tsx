@@ -8,9 +8,14 @@ import { RiDragMove2Fill } from "react-icons/ri";
 type QuestionWrapperProps = {
   children: React.ReactNode;
   id: string;
+  viewOnly?: boolean;
 };
 
-const QuestionWrapper: React.FC<QuestionWrapperProps> = ({ id, children }) => {
+const QuestionWrapper: React.FC<QuestionWrapperProps> = ({
+  id,
+  children,
+  viewOnly,
+}) => {
   const {
     attributes,
     listeners,
@@ -25,8 +30,18 @@ const QuestionWrapper: React.FC<QuestionWrapperProps> = ({ id, children }) => {
     useFormStore((state) => state);
 
   const isSelected = questionSelectedId == id;
-  const style = { transition, transform: CSS.Transform.toString(transform) };
-  if (!editable) return <div className="my-2">{children}</div>;
+  const style = {
+    transition,
+    transform: CSS.Transform.toString({
+      scaleX: 1,
+      scaleY: 1,
+      x: transform?.x,
+      y: transform?.y,
+    }),
+  };
+
+  if (!editable || viewOnly) return <div className="my-2">{children}</div>;
+
   return (
     <div
       ref={setNodeRef}

@@ -1,21 +1,35 @@
-'use client'
+"use client";
 import { useFormStore } from "@/store/form";
 import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { Fragment } from "react";
-import { UseFormReturn } from "react-hook-form";
+import { Fragment, useEffect } from "react";
 import QuestionItem from "./question-item";
 import { PlaceHolder } from "./placeholder";
 import Lottie from "lottie-react";
 import animation from "@/assets/animation";
-type ComponentProps = {
-  form: UseFormReturn<any> | null;
-};
+import { Button } from "@/components/ui/button";
 
-const FormQuestions: React.FC<ComponentProps> = ({ form }) => {
+const FormQuestions = () => {
   const formData = useFormStore((state) => state.form);
+  const setFormData = useFormStore((state) => state.setForm);
+
+  useEffect(() => {
+    const savedFormData = localStorage.getItem("formData");
+    if (savedFormData) {
+      setFormData(JSON.parse(savedFormData));
+    } else {
+      setFormData([]);
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    if (formData && formData.length > 0) {
+      localStorage.setItem("formData", JSON.stringify(formData));
+    }
+  }, [formData]);
 
   if (formData && !formData.length) {
     return (
@@ -40,17 +54,28 @@ const FormQuestions: React.FC<ComponentProps> = ({ form }) => {
   }
 
   return (
-    <SortableContext items={formData} strategy={verticalListSortingStrategy}>
-      {formData.map((item: any, index: number) => {
-        return (
-          <Fragment key={item.id}>
-            {index == 0 && <PlaceHolder id={item.id} isTop={true} />}
-            <QuestionItem question={item} />
-            {<PlaceHolder id={item.id} isTop={false} />}
-          </Fragment>
-        );
-      })}
-    </SortableContext>
+    <>
+      <div className="flex justify-end">
+        <Button
+          onClick={() => {
+            setFormData([]);
+          }}
+        >
+          Reset
+        </Button>
+      </div>
+      <SortableContext items={formData} strategy={verticalListSortingStrategy}>
+        {formData.map((item: any, index: number) => {
+          return (
+            <Fragment key={item.id}>
+              {index == 0 && <PlaceHolder id={item.id} isTop={true} />}
+              <QuestionItem question={item} />
+              {<PlaceHolder id={item.id} isTop={false} />}
+            </Fragment>
+          );
+        })}
+      </SortableContext>
+    </>
   );
 };
 

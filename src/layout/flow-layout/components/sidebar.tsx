@@ -17,9 +17,9 @@ const ItemWrapper: React.FC<ItemWrapperProps> = ({
   return (
     <div onDragStart={onDragStart} draggable>
       <Card className="bg-white rounded-sm dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow cursor-grab">
-        <CardContent className="flex flex-col items-center justify-center p-4">
+        <CardContent className="flex flex-col items-center justify-center p-3">
           {icon}
-          <span className="text-xs font-medium text-gray-900 dark:text-gray-50">
+          <span className="text-[12px] mt-1 font-medium text-gray-900 dark:text-gray-50">
             {label}
           </span>
         </CardContent>

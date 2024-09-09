@@ -14,9 +14,10 @@ import { useFormStore } from "@/store/form";
 
 type QuestionItemProps = {
   question: FormItemType;
+  viewOnly?: boolean;
 };
 
-const QuestionItem: React.FC<QuestionItemProps> = ({ question }) => {
+const QuestionItem: React.FC<QuestionItemProps> = ({ question, viewOnly }) => {
   const { updateQuestion } = useFormStore();
 
   const onChange = (value: any) => {
@@ -33,7 +34,7 @@ const QuestionItem: React.FC<QuestionItemProps> = ({ question }) => {
   };
 
   return (
-    <QuestionWrapper id={question.id}>
+    <QuestionWrapper id={question.id} viewOnly={viewOnly}>
       {question.is_form_item ? (
         <div className="flex flex-col w-full p-2">
           <Label className="mb-3">

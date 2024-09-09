@@ -66,7 +66,7 @@ const TimeItem: React.FC<ComponentProps> = ({ question, onChange }) => {
       )}
       <Select onValueChange={handleTimeChange} value={selectedTime}>
         <SelectTrigger>
-          <SelectValue placeholder="Select timexx" />
+          <SelectValue placeholder="Select time" />
         </SelectTrigger>
         <SelectContent>{generateTimeOptions()}</SelectContent>
       </Select>
