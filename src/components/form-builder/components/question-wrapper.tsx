@@ -35,7 +35,9 @@ const QuestionWrapper: React.FC<QuestionWrapperProps> = ({
     transform: CSS.Transform.toString({
       scaleX: 1,
       scaleY: 1,
+      // @ts-ignore
       x: transform?.x,
+      // @ts-ignore
       y: transform?.y,
     }),
   };
