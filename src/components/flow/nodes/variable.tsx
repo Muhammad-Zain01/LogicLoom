@@ -19,6 +19,7 @@ import Image from "../components/image";
 import FormComponent from "../components/form";
 import CodeBlock from "../components/code-block";
 import APITest from "../components/api-test";
+import EmojiPicker from "../components/emoji";
 
 const getCurrentNodeData = (state: any, id: string) => {
   const nodes = state.getNodes();
@@ -133,6 +134,11 @@ const VariableNode = memo(({ id, data, selected }: NodeProps) => {
         title = "API Testing";
         render = <APITest id={id} />;
         break;
+      case "emoji":
+        minWidth = 100;
+        minHeight = 100;
+        title = "Emoji";
+        render = <EmojiPicker id={id} />;
     }
     return {
       minHeight,

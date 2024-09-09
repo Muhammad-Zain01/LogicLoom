@@ -1,7 +1,7 @@
 import { LuCircleDot } from "react-icons/lu";
 import { BsMusicNote } from "react-icons/bs";
 import { CodeIcon, ImageIcon, TimerIcon } from "@radix-ui/react-icons";
-import { MdTextIncrease } from "react-icons/md";
+import { MdEmojiEmotions, MdTextIncrease } from "react-icons/md";
 import { FaWpforms } from "react-icons/fa6";
 
 export const Widgets = [
@@ -52,6 +52,13 @@ export const Widgets = [
     type: "variable_node|api",
     icon: (
       <CodeIcon className="h-7 w-7 text-gray-500 dark:text-gray-400 mb-1" />
+    ),
+  },
+  {
+    label: "Emoji",
+    type: "variable_node|emoji",
+    icon: (
+      <MdEmojiEmotions className="h-7 w-7 text-gray-500 dark:text-gray-400 mb-1" />
     ),
   },
 
