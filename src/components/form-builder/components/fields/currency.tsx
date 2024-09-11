@@ -18,12 +18,6 @@ const Currency: React.FC<ComponentProps> & { Settings?: React.FC<{ question: For
 }) => {
   const currencyRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (question.answer) {
-      onChange(question.answer);
-    }
-  }, [question.answer, onChange]);
-
   return (
     <div
       ref={currencyRef}
