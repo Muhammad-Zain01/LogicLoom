@@ -34,13 +34,14 @@ function SimpleFloatingEdge({
     targetY: ty,
   });
 
+  console.log("xxx", style);
   return (
     <path
       id={id}
       className="react-flow__edge-path"
       d={edgePath}
       markerEnd={markerEnd}
-      style={style}
+      style={{ ...style, strokeWidth: 3 }}
     />
   );
 }
