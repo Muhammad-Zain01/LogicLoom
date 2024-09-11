@@ -61,9 +61,6 @@ const TimeItem: React.FC<ComponentProps> = ({ question, onChange }) => {
 
   return (
     <div className="flex flex-col space-y-2">
-      {question.description && (
-        <p className="text-sm text-gray-500">{question.description}</p>
-      )}
       <Select onValueChange={handleTimeChange} value={selectedTime}>
         <SelectTrigger>
           <SelectValue placeholder="Select time" />

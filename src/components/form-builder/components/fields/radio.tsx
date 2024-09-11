@@ -25,9 +25,6 @@ const RadioItem: React.FC<ComponentProps> = ({ question, onChange }) => {
 
   return (
     <div className="flex flex-col space-y-2">
-      {question.description && (
-        <p className="text-sm text-gray-500">{question.description}</p>
-      )}
       {list_values && list_values.length > 0 ? (
         <RadioGroup
           value={selectedValue}

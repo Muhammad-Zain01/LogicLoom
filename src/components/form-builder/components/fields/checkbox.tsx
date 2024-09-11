@@ -23,7 +23,7 @@ const CheckboxItem: React.FC<ComponentProps> = ({ question, onChange }) => {
     if (checked) {
       newSelectedValues = [...selectedValues, label];
     } else {
-      newSelectedValues = selectedValues.filter(value => value !== label);
+      newSelectedValues = selectedValues.filter((value) => value !== label);
     }
     setSelectedValues(newSelectedValues);
     onChange(JSON.stringify(newSelectedValues));
@@ -31,9 +31,6 @@ const CheckboxItem: React.FC<ComponentProps> = ({ question, onChange }) => {
 
   return (
     <div className="flex flex-col space-y-2">
-      {question.description && (
-        <p className="text-sm text-gray-500">{question.description}</p>
-      )}
       {list_values && list_values.length > 0 ? (
         <div className="flex flex-wrap gap-5">
           {list_values.map((value: { label: string }, index: number) => (
@@ -41,7 +38,9 @@ const CheckboxItem: React.FC<ComponentProps> = ({ question, onChange }) => {
               <Checkbox
                 id={`${question.id}-${index}`}
                 checked={selectedValues.includes(value.label)}
-                onCheckedChange={(checked) => handleCheckboxChange(value.label, checked as boolean)}
+                onCheckedChange={(checked) =>
+                  handleCheckboxChange(value.label, checked as boolean)
+                }
               />
               <Label htmlFor={`${question.id}-${index}`}>{value.label}</Label>
             </div>

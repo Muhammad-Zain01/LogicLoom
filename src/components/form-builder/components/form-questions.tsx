@@ -59,6 +59,7 @@ const FormQuestions = () => {
         <Button
           onClick={() => {
             setFormData([]);
+            localStorage.removeItem("formData");
           }}
         >
           Reset
