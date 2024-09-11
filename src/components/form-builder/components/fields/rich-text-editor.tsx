@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { FormItem } from "@/types/form";
 import { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
@@ -54,9 +54,6 @@ const RichTextEditor: React.FC<ComponentProps> = ({ question, onChange }) => {
 
   return (
     <div className="space-y-2 pb-5">
-      {question.description && (
-        <p className="text-sm text-gray-500">{question.description}</p>
-      )}
       <ReactQuill
         theme="snow"
         value={editorContent}

@@ -113,8 +113,8 @@ const VariableNode = memo(({ id, data, selected }: NodeProps) => {
         render = <Image id={id} />;
         break;
       case "form":
-        minWidth = 400;
-        minHeight = 450;
+        minWidth = 450;
+        minHeight = 500;
         title = "Form";
         render = <FormComponent />;
         break;
