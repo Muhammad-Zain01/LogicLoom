@@ -10,9 +10,11 @@ import { PlaceHolder } from "./placeholder";
 import Lottie from "lottie-react";
 import animation from "@/assets/animation";
 import { Button } from "@/components/ui/button";
+import FormSubmitModal from "./form-submit-modal";
 
 const FormQuestions = () => {
-  const formData = useFormStore((state) => state.form);
+  const { form: formData, editable } = useFormStore((state) => state);
+
   const setFormData = useFormStore((state) => state.setForm);
 
   useEffect(() => {
@@ -56,27 +58,31 @@ const FormQuestions = () => {
   return (
     <>
       <div className="flex justify-end">
-        <Button
+        {editable && <Button
           onClick={() => {
             setFormData([]);
             localStorage.removeItem("formData");
           }}
         >
           Reset
-        </Button>
+        </Button>}
       </div>
       <SortableContext items={formData} strategy={verticalListSortingStrategy}>
         {formData.map((item: any, index: number) => {
           return (
-            <Fragment key={item.id}>
+            <div key={item.id} className="">
               {index == 0 && <PlaceHolder id={item.id} isTop={true} />}
               <QuestionItem question={item} />
               {<PlaceHolder id={item.id} isTop={false} />}
-            </Fragment>
+            </div>
           );
         })}
+
       </SortableContext>
+      <FormSubmitModal />
     </>
+
+
   );
 };
 

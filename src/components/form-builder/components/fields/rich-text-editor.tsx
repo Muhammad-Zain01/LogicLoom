@@ -61,7 +61,7 @@ const RichTextEditor: React.FC<ComponentProps> = ({ question, onChange }) => {
         modules={modules}
         formats={formats}
         placeholder={question.placeholder || "Enter your text here..."}
-        className="bg-white h-[200px] shadow-none border-none"
+        className="bg-white  shadow-none border-none"
       />
     </div>
   );
