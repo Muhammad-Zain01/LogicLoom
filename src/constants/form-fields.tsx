@@ -1,21 +1,17 @@
-import { FaHeading, FaRegAddressCard } from "react-icons/fa6";
+import { FaHeading } from "react-icons/fa6";
 import { IoCheckboxOutline } from "react-icons/io5";
 import { IoRadioButtonOnOutline } from "react-icons/io5";
 import { HiOutlineSelector } from "react-icons/hi";
 import { AiOutlineNumber } from "react-icons/ai";
 import { IoText } from "react-icons/io5";
 import { MdOutlineShortText } from "react-icons/md";
-import { LuFormInput, LuText } from "react-icons/lu";
+import { LuText } from "react-icons/lu";
 import { BsCalendar2Date } from "react-icons/bs";
 import { IoTimeOutline } from "react-icons/io5";
 import { BsCurrencyDollar } from "react-icons/bs";
-import { PiClosedCaptioningLight } from "react-icons/pi";
 import { CiTextAlignJustify } from "react-icons/ci";
-import { RxDividerHorizontal } from "react-icons/rx";
-import { FiPhone } from "react-icons/fi";
+import { RxButton, RxDividerHorizontal } from "react-icons/rx";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
-import { SlCalender } from "react-icons/sl";
-import { FaSignature } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa6";
 
 const CLASSES = "h-6 w-6 mb-2 text-gray-500 dark:text-gray-400";
@@ -139,7 +135,7 @@ export const FormFields: FormFieldType = {
     {
       label: "Button",
       type: "button",
-      icon: <LuFormInput className={CLASSES} />,
+      icon: <RxButton className={CLASSES} />,
       isFormItem: false,
     },
     {
